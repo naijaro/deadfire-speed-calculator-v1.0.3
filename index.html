@@ -624,7 +624,9 @@
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/1.5, "Modal: War Hammers", EFFECT_WR.melee, "War Hammer"), // Piercing Blows
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1.25, "Sure-Handed Chant", EFFECT_WR.ranged, null, null, null, true),
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/0.85, "Two-Weapon Style", EFFECT_WR.any, null, null, TWO_WEAPON_STYLE_ID),        
-        GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/0.15, "Stealth", EFFECT_WR.any),   
+        GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/0.15, "Stealth", EFFECT_WR.any),
+        GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 2, "Streetfighter Bonus", EFFECT_WR.any),
+        GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/1.2, "Streetfighter Penalty", EFFECT_WR.any),        
         
         GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Shootist (Acina's Tricorn)", EFFECT_WR.ranged, null),
         GenEffect(EFFECT_CATEGORIES.affectsReload, 2.00, "Modal: Pistols", EFFECT_WR.ranged, "Pistol", SUPPRESING_CATEGORIES.reloadSpeedCoef1),
@@ -777,6 +779,24 @@
               ToggleEnabledEffect(isChecked, siblingEffect.id, siblingEffect);
               lockPropagation = false;
             }
+          }
+          
+          if (effect.title == 'Streetfighter Bonus' && isChecked)
+          {
+            var penaltyEffect = GetEffectByTitle('Streetfighter Penalty');
+            lockPropagation = true;
+            $effectsBlock.find('.effect-checkbox[data-id="' + penaltyEffect.id + '"]').bootstrapToggle('off');
+            ToggleEnabledEffect(false, penaltyEffect.id, penaltyEffect);
+            lockPropagation = false;
+          }
+          
+          if (effect.title == 'Streetfighter Penalty' && isChecked)
+          {
+            var bonusEffect = GetEffectByTitle('Streetfighter Bonus');
+            lockPropagation = true;
+            $effectsBlock.find('.effect-checkbox[data-id="' + bonusEffect.id + '"]').bootstrapToggle('off');
+            ToggleEnabledEffect(false, bonusEffect.id, bonusEffect);
+            lockPropagation = false;
           }
           
           if (effect.suppressingCategory)
@@ -937,7 +957,16 @@
         
         return null;
       }
-            
+      
+      function GetEffectByTitle(title)
+      {
+        for (var i in EFFECTS)
+          if (EFFECTS[i].title == title)
+            return EFFECTS[i];
+        
+        return null;
+      }
+    
       function GetBaseResultsBlock()
       {
         if (VARS.$BASE_RESULTS_BLOCK == null)
