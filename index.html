@@ -305,7 +305,7 @@
     </div>
     <div class="container">
       <h1 id="page-title">Speed Calculator - for PoE II Deadfire</h1>
-      <p id="page-info">version 1.0.0 <a class="text-muted" href="https://forums.obsidian.net/user/160416-maxquest/">by MaxQuest</a> compliant with v1.0 <span class="text-muted">of the game.</span></p>     
+      <p id="page-info">version 1.01 <a class="text-muted" href="https://forums.obsidian.net/user/160416-maxquest/">by MaxQuest</a> compliant with v1.01 <span class="text-muted">of the game.</span></p>     
       <form class="form-horizontal" id="main-form">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-xs-12" id="equipment-block">
@@ -406,16 +406,16 @@
                     <div class="panel-heading">Affects All Phases <span class="badge badge-info">&nbsp;</span></div>
                     <div class="panel-body"></div>
                   </div>
+                  <div class="panel panel-default panel-effects" data-id="affectsReload">
+                    <div class="panel-heading">Affects Reload <span class="badge badge-info-alt">&nbsp;</span></div>
+                    <div class="panel-body"></div>
+                  </div>
                 </div>
                 <div class="col-lg-6 col-sm-6 col-xs-12">
                   <div class="panel panel-default panel-effects" data-id="affectsRecoveryAndReload">
                     <div class="panel-heading">Affects Recovery And Reload<span class="badge badge-info-alt">&nbsp;</span></div>
                     <div class="panel-body"></div>
-                  </div>
-                  <div class="panel panel-default panel-effects" data-id="affectsReload">
-                    <div class="panel-heading">Affects Reload <span class="badge badge-info-alt">&nbsp;</span></div>
-                    <div class="panel-body"></div>
-                  </div>
+                  </div>                  
                 </div>
               </div>
             </div>            
@@ -607,7 +607,7 @@
       var EFFECTS = [
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.20, "Bloodlust", EFFECT_WR.any), 
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.25, "Frenzy", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1),
-        GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.20, "Coral Snuff", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1),
+        GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.10, "Coral Snuff", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1, null, false, 0.0068),
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 0.75, "Modal: Arbalests", EFFECT_WR.ranged, "Arbalest"), // Overbearing Shot
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 0.75, "Modal: Crossbows", EFFECT_WR.ranged, "Crossbow"), // Interrupting Shot
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.15, "Potion of Deftness", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1, null, false, 0.005),
