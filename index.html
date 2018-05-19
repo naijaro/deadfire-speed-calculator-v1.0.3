@@ -629,10 +629,12 @@
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 2, "Streetfighter Bonus", EFFECT_WR.any),
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/1.2, "Streetfighter Penalty", EFFECT_WR.any),        
         
-        GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Shootist (Acina's Tricorn)", EFFECT_WR.ranged, null),
+        GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Gunner", EFFECT_WR.ranged, null),
+        GenEffect(EFFECT_CATEGORIES.affectsReload, 1/0.8, "Gunnery (Maia's Garb)", EFFECT_WR.ranged, ["Arbalest", "Arquebus", "Crossbow"]),
         GenEffect(EFFECT_CATEGORIES.affectsReload, 2.00, "Modal: Pistols", EFFECT_WR.ranged, "Pistol", SUPPRESING_CATEGORIES.reloadSpeedCoef1),
-        GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Sure-Handed Chant", EFFECT_WR.ranged, null, SUPPRESING_CATEGORIES.reloadSpeedCoef1, null, true),
-        GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Gunner", EFFECT_WR.ranged, null)
+        GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Shootist (Acina's Tricorn)", EFFECT_WR.ranged, null),        
+        GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Sure-Handed Chant", EFFECT_WR.ranged, null, SUPPRESING_CATEGORIES.reloadSpeedCoef1, null, true)
+        
       ];
       
       var GLOVES_EFFECTS = {
@@ -1383,7 +1385,13 @@
           if (effect.rangeType == 'melee' && WieldableIsRanged(wieldable))
             continue;
           
-          if (effect.weaponType != null && effect.weaponType != wieldable.title)
+//          if (effect.weaponType != null && effect.weaponType != wieldable.title)
+//            continue;
+          
+          if (effect.weaponType != null && typeof effect.weaponType == 'string' && effect.weaponType != wieldable.title)
+            continue;
+          
+          if (effect.weaponType != null && typeof effect.weaponType == 'array' && effect.weaponType.indexOf(wieldable.title) < 0)
             continue;
           
           if (effect.id == TWO_WEAPON_STYLE_ID && !IS_DW_SETUP)
