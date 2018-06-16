@@ -305,7 +305,7 @@
     </div>
     <div class="container">
       <h1 id="page-title">Speed Calculator - for PoE II Deadfire</h1>
-      <p id="page-info">version 1.0.1 <a class="text-muted" href="https://forums.obsidian.net/user/160416-maxquest/">by MaxQuest</a> compliant with v1.0.1 <span class="text-muted">of the game.</span></p>     
+      <p id="page-info">version 1.0.3 <a class="text-muted" href="https://forums.obsidian.net/user/160416-maxquest/">by MaxQuest</a> compliant with v1.1.0 <span class="text-muted">of the game.</span></p>     
       <form class="form-horizontal" id="main-form">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-xs-12" id="equipment-block">
@@ -613,9 +613,9 @@
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 0.75, "Modal: Crossbows", EFFECT_WR.ranged, "Crossbow"), // Interrupting Shot
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.15, "Potion of Deftness", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1, null, false, 0.005),
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.15, "Potion of Relentless Striking", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1, null, false, 0.01),        
-        GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.20, "Swift Strikes", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1),
+        GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.15, "Swift Strikes", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1),
         
-        GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1.25, "Articulated (DoC BP)", EFFECT_WR.any), 
+        GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/0.9, "Articulated (DoC BP)", EFFECT_WR.any), 
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/1.5, "Modal: Battle Axes", EFFECT_WR.melee, "Battle Axe"), // Bleeding Cut
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 2.00, "Modal: Hunting Bow", EFFECT_WR.ranged, "Hunting Bow"), // Rapid Shot
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/1.5, "Modal: Quarterstaves", EFFECT_WR.melee, "Quarterstaff"), // Defensive Strike
@@ -632,7 +632,7 @@
         GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Gunner", EFFECT_WR.ranged, null),
         GenEffect(EFFECT_CATEGORIES.affectsReload, 1/0.8, "Gunnery (Maia's Garb)", EFFECT_WR.ranged, ["Arbalest", "Arquebus", "Crossbow"]),
         GenEffect(EFFECT_CATEGORIES.affectsReload, 2.00, "Modal: Pistols", EFFECT_WR.ranged, "Pistol", SUPPRESING_CATEGORIES.reloadSpeedCoef1),
-        GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Shootist (Acina's Tricorn)", EFFECT_WR.ranged, null),        
+        GenEffect(EFFECT_CATEGORIES.affectsReload, 1/0.9, "Shootist (Acina's Tricorn)", EFFECT_WR.ranged, null),        
         GenEffect(EFFECT_CATEGORIES.affectsReload, 1.25, "Sure-Handed Chant", EFFECT_WR.ranged, null, SUPPRESING_CATEGORIES.reloadSpeedCoef1, null, true)
         
       ];
