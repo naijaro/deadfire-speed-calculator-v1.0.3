@@ -315,7 +315,7 @@
                 <div class="col-lg-12 col-sm-12 col-xs-12" id="armor-col">
                   <div class="panel panel-default">
                     <div class="panel-heading">Armor Type</div>
-                    <div class="panel-body" style="padding-bottom: 40px;">
+                    <div class="panel-body">
                       <select class="form-control">
                         <optgroup label="No Armor">
                           <option value="1" data-recovery-penalty="0">Naked</option>
@@ -339,6 +339,9 @@
                       </select>
                       <div class="checkbox">
                         <label><input type="checkbox" class="property" data-prop="armored_grace"> Armored Grace</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" class="property" data-prop="cutthroat_cosmo"> Cutthroat Cosmo</label>
                       </div>
                     </div>
                   </div>
@@ -613,6 +616,7 @@
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 0.75, "Modal: Crossbows", EFFECT_WR.ranged, "Crossbow"), // Interrupting Shot
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.15, "Potion of Deftness", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1, null, false, 0.005),
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.15, "Potion of Relentless Striking", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1, null, false, 0.01),        
+        // GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.20, "Potion of Spatial Alacrity", EFFECT_WR.ranged, null, SUPPRESING_CATEGORIES.attackSpeedMult1, null, false, 0.01),        
         GenEffect(EFFECT_CATEGORIES.affectsAllPhases, 1.15, "Swift Strikes", EFFECT_WR.any, null, SUPPRESING_CATEGORIES.attackSpeedMult1),
         
         GenEffect(EFFECT_CATEGORIES.affectsRecoveryAndReload, 1/0.9, "Articulated (DoC BP)", EFFECT_WR.any), 
@@ -1293,9 +1297,11 @@
       {
         var $container = $('#armor-col');        
         var withArmoredGrace = $container.find('.property[data-prop="armored_grace"]').is(':checked');
+        var withCutthroatCosmo = $container.find('.property[data-prop="cutthroat_cosmo"]').is(':checked');
         
         var speedCoef = Number($container.find("select").val());
             speedCoef+= withArmoredGrace ? 0.10 : 0;
+            speedCoef+= withCutthroatCosmo ? 0.10 : 0;
         
         ARMOR_SPEED_COEF = Math.min(1, speedCoef);
         return ARMOR_SPEED_COEF;
